@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tulip Nursery Garden | Exotic Adeniums by MOHANAKRISHANAN.N</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefaf5;
+            color: #2c2a29;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, .logo, .owner-name {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* HEADER */
+        .hero {
+            background: linear-gradient(135deg, #e9d6c1 0%, #f6ede5 100%);
+            padding: 48px 0 64px;
+            border-bottom: 2px solid #e6ccb2;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #8b5a2b;
+        }
+        .logo span {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #b97f44;
+        }
+
+        .owner-tag {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border-top: 1px solid #dbbc8c;
+            display: inline-block;
+            padding-top: 10px;
+            color: #5c3e1f;
+        }
+        .owner-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #ad6b35;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-top: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .hero-sub {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 20px auto 0;
+            background: rgba(255,255,240,0.7);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            color: #5a3e28;
+            font-weight: 500;
+        }
+
+        /* STATS BANNER */
+        .stats {
+            background: #fff6ed;
+            margin: -30px auto 40px;
+            max-width: 1000px;
+            border-radius: 60px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            border: 1px solid #ffe2c4;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 8px 16px;
+        }
+        .stat-number {
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: #c46f2b;
+            font-family: 'Playfair Display', serif;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7f613f;
+        }
+
+        /* section headings */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 64px 0 32px 0;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: #e1b68b;
+        }
+
+        /* CARE CARD (SPECIFIC) */
+        .care-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            background: #fef6ef;
+            border-radius: 36px;
+            padding: 32px 28px;
+            margin: 20px 0;
+            border: 1px solid #ffebdb;
+        }
+        .care-card {
+            flex: 1;
+            min-width: 220px;
+            background: white;
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            transition: 0.2s;
+            border-bottom: 4px solid #e7c8a3;
+        }
+        .care-card i {
+            font-size: 2rem;
+            color: #c7752e;
+            margin-bottom: 14px;
+        }
+        .care-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .warning {
+            background: #ffefdb;
+            border-left: 6px solid #c85c0e;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        /* GALLERY GRID - 4 PLANTS PER ROW */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 40px 0 60px;
+        }
+        .plant-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .plant-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 35px rgba(0,0,0,0.1);
+        }
+        .plant-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            background: #ede0d2;
+        }
+        .plant-info {
+            padding: 14px 16px 20px;
+            text-align: center;
+        }
+        .plant-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: -0.2px;
+            background: #fdf0e3;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 40px;
+        }
+        .plant-desc {
+            font-size: 0.75rem;
+            color: #8b694a;
+            margin-top: 8px;
+        }
+
+        /* FOUNDER SECTION */
+        .founder-section {
+            background: #e7d9cb;
+            border-radius: 40px;
+            padding: 44px 36px;
+            margin: 60px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            justify-content: center;
+        }
+        .founder-avatar {
+            background: #fff2e6;
+            width: 140px;
+            height: 140px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #b2581a;
+            border: 3px solid white;
+        }
+        .founder-details h3 {
+            font-size: 1.9rem;
+        }
+        .founder-details p {
+            max-width: 450px;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #eedbcb;
+            font-size: 0.85rem;
+            color: #8b6b49;
+        }
+        @media (max-width: 900px) {
+            .container { padding: 0 20px; }
+            .hero-title { font-size: 2rem; }
+            .logo { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (max-width: 500px) {
+            .gallery-grid { grid-template-columns: repeat(1, 1fr); }
+        }
+        .btn-hint {
+            background: none;
+            border: 1px dashed #cbaa7a;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #a57246;
+            margin-top: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container">
+        <div class="logo">🌿 Tulip Nursery Garden <span>| exotic adeniums</span></div>
+        <div class="owner-tag">founded & owned by <span class="owner-name">MOHANAKRISHANAN .N</span></div>
+        <h1 class="hero-title">Desert Rose Masterpiece</h1>
+        <div class="hero-sub">Over 200+ vibrant colour varieties • India's finest Adenium collection</div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- stats -->
+    <div class="stats">
+        <div class="stat-item"><div class="stat-number">200+</div><div class="stat-label">Adenium Varieties</div></div>
+        <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Unique Colour Shades</div></div>
+        <div class="stat-item"><div class="stat-number">🌞</div><div class="stat-label">Desert Adapted</div></div>
+        <div class="stat-item"><div class="stat-number">💧</div><div class="stat-label">Water 2 Days Once</div></div>
+    </div>
+
+    <!-- GALLERY: 38 SEPARATE IMAGE TAGS - 4 PLANTS PER ROW -->
+    <h2 class="section-title">🌈 our living collection</h2>
+    <div class="gallery-grid">
+        
+        <!-- PHOTO 1 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant1.png" alt="Adenium Blood Red">
+            <div class="plant-info"><span class="plant-name">#001  Blood Red</span><div class="plant-desc">🌺 Double Petal Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 2 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant2.png" alt="Adenium Pure White">
+            <div class="plant-info"><span class="plant-name">#002 Dark pink shade</span><div class="plant-desc">🌺 Arabicum Variety</div></div>
+        </div>
+        
+        <!-- PHOTO 3 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant3.png" alt="Adenium Magenta Blush">
+            <div class="plant-info"><span class="plant-name">#003 Magenta Blush</span><div class="plant-desc">🌺 Thai Socotranum</div></div>
+        </div>
+        
+        <!-- PHOTO 4 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant4.png" alt="Adenium Sunset Orange">
+            <div class="plant-info"><span class="plant-name">#004 Black Red</span><div class="plant-desc">🌺 Star Shape Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 5 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant5.png" alt="Adenium Neon Pink">
+            <div class="plant-info"><span class="plant-name">#005  Mermaid shape</span><div class="plant-desc">🌺 Dwarf pink</div></div>
+        </div>
+        
+        <!-- PHOTO 6 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant6.png" alt="Adenium Peach Cream">
+            <div class="plant-info"><span class="plant-name">#006 Banyan shape</span><div class="plant-desc">🌺 Grafted plant</div></div>
+        </div>
+        
+        <!-- PHOTO 7 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant7.png" alt="Adenium Black Velvet">
+            <div class="plant-info"><span class="plant-name">#007 Spiral shape</span><div class="plant-desc">🌺 Obesum Hybrid</div></div>
+        </div>
+        
+        <!-- PHOTO 8 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant8.png" alt="Adenium Double Pink">
+            <div class="plant-info"><span class="plant-name">#008 Deer shape</span><div class="plant-desc">🌺 big trunk</div></div>
+        </div>
+        
+        <!-- PHOTO 9 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant9.png" alt="Adenium Coral Glow">
+            <div class="plant-info"><span class="plant-name">#009 White Pink stripes</span><div class="plant-desc">🌺 RCN Hybrid</div></div>
+        </div>
+        
+        <!-- PHOTO 10 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant10.png" alt="Adenium Golden Eye">
+            <div class="plant-info"><span class="plant-name">#010 Double pink shade</span><div class="plant-desc">🌺 Pink Center</div></div>
+        </div>
+        
+        <!-- PHOTO 11 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant11.png" alt="Adenium Lavender Dream">
+            <div class="plant-info"><span class="plant-name">#011 Light pink dark edge</span><div class="plant-desc">🌺 Somchai</div></div>
+        </div>
+        
+        <!-- PHOTO 12 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant12.png" alt="Adenium Cherry Bomb">
+            <div class="plant-info"><span class="plant-name">#012 curve dark pink</span><div class="plant-desc">🌺 Pink Picotee</div></div>
+        </div>
+        
+        <!-- PHOTO 13 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant13.png" alt="Adenium Snow White">
+            <div class="plant-info"><span class="plant-name">#013 white pink mix</span><div class="plant-desc">🌺 Multiflora</div></div>
+        </div>
+        
+        <!-- PHOTO 14 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant14.png" alt="Adenium Firecracker Red">
+            <div class="plant-info"><span class="plant-name">#014 Pure White</span><div class="plant-desc">🌺 Crispum</div></div>
+        </div>
+        
+        <!-- PHOTO 15 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant15.png" alt="Adenium Mango Sorbet">
+            <div class="plant-info"><span class="plant-name">#015 Diya white pink</span><div class="plant-desc">🌺 White Pink</div></div>
+        </div>
+        
+        <!-- PHOTO 16 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant16.png" alt="Adenium Plum Crazy">
+            <div class="plant-info"><span class="plant-name">#016 Plum Red</span><div class="plant-desc">🌺 Red Vein</div></div>
+        </div>
+        
+        <!-- PHOTO 17 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant17.png" alt="Adenium Cotton Candy">
+            <div class="plant-info"><span class="plant-name">#017 </span><div class="plant-desc">🌺 Light Pink</div></div>
+        </div>
+        
+        <!-- PHOTO 18 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant18.png" alt="Adenium Tangerine">
+            <div class="plant-info"><span class="plant-name">#018 mixture</span><div class="plant-desc">🌺 White Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 19 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant19.png" alt="Adenium Burgundy Star">
+            <div class="plant-info"><span class="plant-name">#019 Multi petal</span><div class="plant-desc">🌺 Dark petal</div></div>
+        </div>
+        
+        <!-- PHOTO 20 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant20.png" alt="Adenium Rose Quartz">
+            <div class="plant-info"><span class="plant-name">#020 Rose Quartz</span><div class="plant-desc">🌺 Semi Double</div></div>
+        </div>
+        
+        <!-- PHOTO 21 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant21.png" alt="Adenium Yellow Moon">
+            <div class="plant-info"><span class="plant-name">#021 Multi petal cotton Candy</span><div class="plant-desc">🌺 Golden Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 22 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant22.png" alt="Adenium Apricot Mist">
+            <div class="plant-info"><span class="plant-name">#022 Dark fade pink</span><div class="plant-desc">🌺 Pastel Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 23 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant23.png" alt="Adenium Passion Violet">
+            <div class="plant-info"><span class="plant-name">#023 Passion mixture</span><div class="plant-desc">🌺 Thai Hybrid</div></div>
+        </div>
+        
+        <!-- PHOTO 24 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant24.png" alt="Adenium Salmon Delight">
+            <div class="plant-info"><span class="plant-name">#024 Salmon Delight</span><div class="plant-desc">🌺 Peach Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 25 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant25.png" alt="Adenium Crimson Tide">
+            <div class="plant-info"><span class="plant-name">#025 Passion Violet</span><div class="plant-desc">🌺 Deep Maroon</div></div>
+        </div>
+        
+        <!-- PHOTO 26 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant26.png" alt="Adenium Buttercream">
+            <div class="plant-info"><span class="plant-name">#026 Baby pink </span><div class="plant-desc">🌺 Creamy White</div></div>
+        </div>
+        
+        <!-- PHOTO 27 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant27.png" alt="Adenium Raspberry Ripple">
+            <div class="plant-info"><span class="plant-name">#027 Raspberry Ripple</span><div class="plant-desc">🌺 Striped Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 28 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant28.png" alt="Adenium Cinnamon Swirl">
+            <div class="plant-info"><span class="plant-name">#028 Red with Blood edge</span><div class="plant-desc">🌺 Brown Edge</div></div>
+        </div>
+        
+        <!-- PHOTO 29 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant29.png" alt="Adenium Midnight Purple">
+            <div class="plant-info"><span class="plant-name">#029 scraping white</span><div class="plant-desc">🌺 Dark White</div></div>
+        </div>
+        
+        <!-- PHOTO 30 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant30.png" alt="Adenium Champagne">
+            <div class="plant-info"><span class="plant-name">#030 varigated plant</span><div class="plant-desc">🌺 Beige varigated</div></div>
+        </div>
+        
+        <!-- PHOTO 31 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant31.png" alt="Adenium Dwarf Pink">
+            <div class="plant-info"><span class="plant-name">#031 Dwarf Pink</span><div class="plant-desc">🌺 Miniature</div></div>
+        </div>
+        
+        <!-- PHOTO 32 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant32.png" alt="Adenium Giant White">
+            <div class="plant-info"><span class="plant-name">#032 Giant White</span><div class="plant-desc">🌺 Large Bloom</div></div>
+        </div>
+        
+        <!-- PHOTO 33 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant33.png" alt="Adenium Thai Sok">
+            <div class="plant-info"><span class="plant-name">#033 Pink mixture</span><div class="plant-desc">🌺 Exotic Thailand</div></div>
+        </div>
+        
+        <!-- PHOTO 34 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant34.png" alt="Adenium Arabian Nights">
+            <div class="plant-info"><span class="plant-name">#034 Round Pink</span><div class="plant-desc">🌺 Dark Center</div></div>
+        </div>
+        
+        <!-- PHOTO 35 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant35.png" alt="Adenium Star Shape">
+            <div class="plant-info"><span class="plant-name">#035 Baby Plants</span><div class="plant-desc">🌺 5-Petal Perfect</div></div>
+        </div>
+        
+        <!-- PHOTO 36 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant36.png" alt="Adenium Picotee Edge">
+            <div class="plant-info"><span class="plant-name">#036 Quadricolour </span><div class="plant-desc">🌺 White Red Rim</div></div>
+        </div>
+        
+        <!-- PHOTO 37 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant37.png" alt="Adenium Golden Crown">
+            <div class="plant-info"><span class="plant-name">#037 Rainbow Mix</span><div class="plant-desc">🌺 Yellow Red</div></div>
+        </div>
+        
+        <!-- PHOTO 38 -->
+        <div class="plant-card">
+            <img class="plant-img" src="media/plant38.png" alt="Adenium Rainbow Mix">
+            <div class="plant-info"><span class="plant-name">#038 Dark pink</span><div class="plant-desc">🌺 Multicolor Graft</div></div>
+        </div>
+        
+    </div>
+
+    <!-- CARE SECTION: strict guidelines -->
+    <h2 class="section-title">🌵 expert care guide</h2>
+    <div class="care-grid">
+        <div class="care-card"><i class="fas fa-sun"></i><h3>Sunlight (full)</h3><p>Thrives in direct sunlight <strong>minimum 6 hours daily</strong>. More sun = more blooms. Never keep indoors.</p></div>
+        <div class="care-card"><i class="fas fa-seedling"></i><h3>Soil</h3><p>Extremely well-draining sandy / cactus mix. <strong>❌ NO coco-peat</strong> — retains moisture and causes rot.</p></div>
+        <div class="care-card"><i class="fas fa-tint"></i><h3>Watering rhythm</h3><p>✅ Water only when top soil is bone-dry OR caudex feels slightly soft. In summer: roughly <strong>every 2 days</strong>. Always let excess drain.</p></div>
+        <div class="care-card"><i class="fas fa-snowflake"></i><h3>Winter dormancy</h3><p>Reduce watering drastically (once every 10–14 days), stop fertilizing. Protect from frost and wet chilly winds.</p></div>
+    </div>
+    <div class="warning">
+        <i class="fas fa-exclamation-triangle"></i> <strong>critical reminder:</strong> Overwatering = root rot. Always check soil before watering. Desert plant DNA — dry is better than wet.
+    </div>
+
+    <!-- ADENIUM TECHNIQUE -->
+    <h2 class="section-title">🌿 management technique & tips</h2>
+    <div style="background: #fff9f2; border-radius: 32px; padding: 28px; margin: 20px 0;">
+        <p style="font-size: 1.1rem;">✔ <strong>Pruning:</strong> cut back branches in early spring to encourage dense caudex and more branches.<br>
+        ✔ <strong>Fertilizer:</strong> use low-nitrogen, high-phosphorus (NPK 0-10-10) during growing season (spring–autumn).<br>
+        ✔ <strong>Repotting:</strong> every 2 years, raise the caudex slightly above soil for that dramatic bonsai look.<br>
+        ✔ <strong>Grafting:</strong> we use expert cleft grafting for multicolour blooms on single plant.<br>
+        ✔ <strong>Pest control:</strong> watch for mealybugs — treat with neem oil spray every 15 days.</p>
+    </div>
+
+    <!-- FOUNDER + OWNER MESSAGE -->
+    <div class="founder-section">
+        <div class="founder-avatar">🌺</div>
+        <div class="founder-details">
+            <h3>MOHANAKRISHANAN .N</h3>
+            <p><strong>Founder & Head Curator</strong> — Tulip Nursery Garden</p>
+            <p style="font-style: italic;">“For 12+ years I've dedicated myself to master the Adenium genetics, bringing you over 200 unique colour morphs. Every plant is raised with desert-smart methods. I personally ensure each plant leaves with perfect root health.”</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin: 20px 0 30px;">
+        <i class="fas fa-map-marker-alt"></i> Tiruvannamalai / India  |  
+        <i class="fab fa-whatsapp"></i> +91 97890 12345 (demo contact)  |
+        <i class="far fa-envelope"></i> tulipnursery@adenium.in
+    </div>
+</div>
+
+<footer>
+    © 2026 Tulip Nursery Garden — Founder MOHANAKRISHANAN.N | Desert Rose Specialists. Photos represent actual blooms from our stock.
+    <br><small>⭐ 200+ colour varieties | watering 2 days • no coco-peat • full sun mandatory</small>
+</footer>
+
+<script>
+    // Add click functionality to all plant cards
+    document.querySelectorAll('.plant-card').forEach((card, index) => {
+        card.addEventListener('click', () => {
+            const plantName = card.querySelector('.plant-name')?.innerText || 'Adenium';
+            alert(`🌺 ${plantName}\n📞 Contact MOHANAKRISHANAN for price & availability\n📍 Tulip Nursery Garden`);
+        });
+    });
+</script>
+
+</body>
+</html>
